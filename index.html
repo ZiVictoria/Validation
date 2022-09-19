@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Registration form</title>
+</head>
+<body>
+    <form name="form">
+        <div class="container">
+            <h1>Sign Up</h1>
+            <label for="email">Email:</label>
+            <input type="email" placeholder="Enter Email *" name="email" id="email" pattern="/([a-zA-Z0-9]+)([\_\.\-{1}])?([a-zA-Z0-9]+)\@([a-zA-Z0-9]+)([\.])([a-zA-Z\.]+)/g
+            " required><br>
+            <label for="name">Name:</label>
+            <input type="text" placeholder="Enter Name *" name="name" id="name" required><br>
+            <label for="surname">Surname:</label>
+            <input type="text" placeholder="Enter Surname" name="surname" id="surname"><br>
+            <fieldset>
+                <legend>Sex</legend>
+            <input type="radio" name="gender" value="Male" id="m"><label for="m">Male</label>
+            <input type="radio" name="gender" value="Female" id="f"><label for="f">Female</label><br>
+            </fieldset>
+            <label for="password">Password:</label>
+            <input type="password" placeholder="Enter Password *" name="password" id="password" minlength="8" required><br>
+            <div id="error"disabled></div>
+            <button type="submit" onclick="checkAll()">Register</button>
+        </div>
+    </form>
+    <script src="./script.js"></script>
+</body>
+</html>
