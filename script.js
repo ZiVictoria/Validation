@@ -1,3 +1,10 @@
+let email = document.querySelector("#email");
+let name = document.querySelector("#name");
+let surname = document.querySelector("#surname");
+let password = document.querySelector("#password");
+let btn = document.querySelector("#btn");
+
+
 let error = [];
 function checkValidity(input) {
     let validity = input.validity;
@@ -24,3 +31,29 @@ function checkAll() {
     errorDiv.style.display = "block";
     errorDiv.innerHTML = error.join('. \n');
 }
+
+function sendData(){
+  checkAll();
+  
+  let user = {
+    email: email.value,
+    name: name.value,
+    surname: surname.value,
+    password: password.value,
+  }
+
+  fetch("https://httpbin.org/post", {
+    method: "POST",
+    body: JSON.stringify(user),
+    headers: {
+      'Content-Type': 'application/json;charset=utf-8'
+    },
+  })
+  .then(response => response.json())
+  .then(user => {
+    console.log(user)
+  })
+  .catch(error => console.log(error));
+}
+
+btn.addEventListener("click", sendData);
