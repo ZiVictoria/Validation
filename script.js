@@ -32,7 +32,8 @@ function checkAll() {
     errorDiv.innerHTML = error.join('. \n');
 }
 
-function sendData(){
+function sendData(event){
+  event.preventDefault();
   checkAll();
   
   let user = {
